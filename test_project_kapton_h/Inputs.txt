@@ -1,0 +1,56 @@
+###################################################################
+    Environment Inputs
+###################################################################
+
+constant conditions             = False                 # Assume constant neutral density, velocity and speed ratio
+atmospheric conditions file     = iss_atmosphere.txt    # File containing neutral density, velocity and speed ratio data (if not constant)
+neutral density                 = 1.0e-11               # [kg / m^3] if constant values are assumed
+speed ratio                     = 7.0                   # [-] if constant values are assumed
+
+####################################################################
+    Spacecraft Inputs
+####################################################################
+
+constant conditions             = True                  # Assume constant incidence angle and temperature
+spacecraft data file            = spacecraft.txt        # File containing the spacecraft attitude and surface temperature
+incident velocity               = 7600                  # [m / s] if constant values are assumed
+incidence angle 1               = 0.0001                # [deg] if constant values are assumed (must be between 0 and 180 deg)
+incidence angle 2               = 0                     # [deg] if constant values are assumed (must be between 0 and 360 deg)
+surface temperature             = 230                   # [K] if constant values are assumed
+polygaussian surface file       = initial_surface.srf   # File containing the polygaussian surface coefficients
+surface material                = kapton_h_fit       # Chosen from a list of materials available in the materials_data folder
+surface density                 = 1420                  # [kg/m^3] The density of the surface
+energy acc coefficient          = 0.4                   # The local energy accommodation coefficient of the surface
+
+#####################################################################
+    Simulation Inputs
+#####################################################################
+
+grid points x                   = 200                   # Number of numerical grid points in the x-axis
+grid points y                   = 200                   # Number of numerical grid points in the y-axis
+grid points z                   = 50                    # Number of numerical grid points in the z-axis
+integration steps               = 15                    # Number of integration steps in computing polygaussian quantities
+sample size                     = 100.0                  # [micrometers] size of the numerical domain in the x-axis
+domain depth                    = 400.0                  # [micrometers] size of the numerical domain in the y-axis
+domain padding                  = 0.5                   # [micrometers] size of the numerical domain in the z-axis
+surface angle                   = 0                     # [deg] the angle of the surface w.r.t. the flow
+start date                      = 11/08/2001:12:00:00   # [UTC time] the starting date of the simulation
+end_date                        = 11/07/2005:12:00:00   # [UTC time] the end date of the simulation
+time step                       = 10                   # [hours] the time step of the simulation
+polygaussian update step        = 500.0                 # [hours] the time step when a polygaussian surface is re-fitted
+print time step                 = 1000.0                  # [hours] the time step of plotting and exporting data
+number of reflections           = 4                     # [-] The number of surface reflections assumed for each gas particle
+
+#####################################################################
+    Exporting Inputs
+#####################################################################
+
+plot erosion history?           = True                  # Plot the erosion yield, density and speed ratio as a function of time. Also plot the surface morphology
+plot polygaussian fitting?      = True                  # Plot the polygaussian surface evolution
+export erosion history?         = True                  # Export all relevant quantities as a function of time
+export surface geometry?        = True                  # Export the surface geometry as a stl file
+
+
+# mean radius = 1.0 micrometers
+# radius variance = 0.8 micrometers
+# num particles = 1400
